@@ -17,7 +17,7 @@ rend.vertexShader = shaders.vertexShader
 
 #threshold_value = 0.5  # Cambia esto al valor de umbral deseado
 #rend.fragmentShader = lambda **kwargs: shaders.edgeDetectionFragmentShader(threshold=threshold_value, **kwargs)
-rend.fragmentShader = shaders.sepiaFragmentShader
+rend.fragmentShader = shaders.fragmentShader
 # Cargar los modelos que se renderizarán
 
 rend.glLoadModel(filename="objs/torre.obj",
@@ -28,9 +28,7 @@ rend.glLoadModel(filename="objs/torre.obj",
 rend.glRender()
 
 
-
-tint_color = (0.5, 0.5, 1.0)  # Cambia esto a tu color deseado
-rend.fragmentShader = lambda **kwargs: shaders.colorTintFragmentShader(tintColor=tint_color, **kwargs)
+rend.fragmentShader = shaders.fragmentShader
 rend.glLoadModel(filename="objs/golem.obj",
                  textureName="textures/EarthGolem.bmp",
                  translate=(750, height/10, 0),
@@ -40,8 +38,7 @@ rend.glLoadModel(filename="objs/golem.obj",
 rend.glRender()
 
 # Asignar el fragment shader: Cambia esto según el shader que desees usar
-
-rend.fragmentShader = shaders.grayscaleFragmentShader
+rend.fragmentShader = shaders.fragmentShader
 # Cargar los modelos que se renderizarán
 
 rend.glLoadModel(filename="objs/dragon.obj",
@@ -53,10 +50,7 @@ rend.glLoadModel(filename="objs/dragon.obj",
 # Renderizar la escena
 rend.glRender()
 
-
-threshold_value = 0.5  # Cambia esto al valor de umbral deseado
-rend.fragmentShader = lambda **kwargs: shaders.edgeDetectionFragmentShader(threshold=threshold_value, **kwargs)
-
+rend.fragmentShader = shaders.fragmentShader
 # Cargar los modelos que se renderizarán
 rend.glLoadModel(filename="objs/knight.obj",
                  textureName="textures/armor.bmp",
@@ -69,4 +63,4 @@ rend.glRender()
 
 
 # Crear el FrameBuffer con la escena renderizada
-rend.glFinish("prueba_proyecto_1.bmp")
+rend.glFinish("RASTERIZER_NO_SHADERS.bmp")
